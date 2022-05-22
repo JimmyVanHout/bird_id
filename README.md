@@ -42,7 +42,7 @@ To train a simple, custom-built CNN from scratch, run:
 python3 bird_id_from_scratch.py
 ```
 
-The model will be saved to a directory named `cnn_from_scratch`. After training is completed and the model is evaluated on the test dataset, the test accuracy will be displayed. Expect it to be low (< 30%), since it is a small and simple model (e.g. it does not make use of residual connections or batch normalization) and the Caltech-UCSD Birds 200 dataset is a challenging dataset with only 59 images per class in the entire dataset (only 35 images per class in the training set of the chosen size) with many similar-looking bird species. Note, however, that even a 20% accuracy is still 40x that which would be achieved in randomly classifying images.
+The model will be saved to a directory named `cnn_from_scratch`. After training is completed and the model is evaluated on the test dataset, the test accuracy will be displayed. Expect it to be low (< 30%), since it is a small and simple model (e.g. it does not make use of residual connections or batch normalization) and the Caltech-UCSD Birds 200 dataset is a challenging dataset with an average of only 59 images per class in the entire dataset (an average of only 35 images per class in the training set that is 60% the size of the original dataset) with many similar-looking bird species. Note, however, that even a 20% accuracy is still 40x that which would be achieved in randomly classifying images.
 
 ### Training a Pretrained, Optionally Fine-Tuned Model
 
