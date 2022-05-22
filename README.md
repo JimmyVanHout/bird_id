@@ -1,6 +1,6 @@
 # Bird ID
 
-A Python-based library to identify bird species from the Caltech-UCSD Birds 200 dataset using either a simple, custom convolutional neural network (CNN) or one of several CNN models (ResNet50, Xception, or VGG16) that has been pretrained on ImageNet and can optionally be fine-tuned by the program. Utilizes the Keras and Tensorflow libraries.
+A Python-based library to identify bird species from the [Caltech-UCSD Birds 200](https://vision.cornell.edu/se3/caltech-ucsd-birds-200/) dataset using either a simple, custom convolutional neural network (CNN) or one of several CNN models ([ResNet50](https://arxiv.org/abs/1512.03385), [Xception](https://arxiv.org/abs/1610.02357), or [VGG16](https://arxiv.org/abs/1409.1556)) that has been pretrained on [ImageNet](https://www.image-net.org/) and can optionally be fine-tuned by the training program. Utilizes the [Keras](https://keras.io/) and [TensorFlow](https://www.tensorflow.org/) libraries.
 
 ## Installation and Setup
 
@@ -18,7 +18,7 @@ A Python-based library to identify bird species from the Caltech-UCSD Birds 200 
 
 1. Install [cuDNN](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html).
 
-1. Download the images from [Google Drive](https://drive.google.com/uc?export=download&id=1GDr1OkoXdhaXWGA8S3MAq3a522Tak-nx) (they were not accessible via the TensorFlow Datasets API during development). Rename the downloaded images directory to `images` and save it to the program directory.
+1. Download the images from [Google Drive](https://drive.google.com/uc?export=download&id=1GDr1OkoXdhaXWGA8S3MAq3a522Tak-nx) (they were not accessible via the [TensorFlow Datasets API](https://www.tensorflow.org/datasets) during development). Rename the downloaded images directory to `images` and save it to the program directory.
 
 1. Clean up the image names in the images directory:
 
@@ -48,7 +48,7 @@ The model will be saved to a directory named `cnn_from_scratch`. After training 
 
 To achieve far greater accuracy (~60%, depending on the chosen model), use one of the following CNN models, each of which has been pretrained on ImageNet and can also optionally be fine-tuned by the program to achieve slightly greater accuracy ("FT" indicates fine-tuning):
 
-Model | Accuracy with FT | Accuracy without FT
+Model | Accuracy without FT | Accuracy with FT
 --- | --- | ---
 ResNet50 | 58.25% | 60.66%
 Xception | 54.26% | 60.83%
@@ -80,7 +80,7 @@ A model without fine-tuning will be saved as a directory named `cnn_from_pretrai
 
 The test accuracy will be displayed after the training is completed and the model is evaluated. Note that even a 60% accuracy is still 120x the accuracy of random classification.
 
-### Predicting an Image Using a Fully-Trained Model
+### Predicting an Image's Class Using a Fully-Trained Model
 
 > Note that the simple, from-scratch CNN model cannot be used for the following, because the other models offer far better predictions.
 
