@@ -6,7 +6,11 @@ A Python-based library to identify bird species from the [Caltech-UCSD Birds 200
 
 > Note that a Linux or Windows operating system and a CUDA-and-cuDNN-capable-GPU are necessary to train a CNN model.
 
-1. Install the library, available from [GitHub](https://github.com/JimmyVanHout/bird_id).
+1. Install the library, available from [GitHub](https://github.com/JimmyVanHout/bird_id):
+
+    ```
+    git clone https://github.com/JimmyVanHout/bird_id.git
+    ```
 
 1. Install TensorFlow and Keras (Keras is installed with TensorFlow):
 
