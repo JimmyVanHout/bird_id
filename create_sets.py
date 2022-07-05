@@ -6,17 +6,16 @@ import sys
 DIRECTORY_NAMES = ["train", "validation", "test"]
 DATA_SPLITS = [0.6, 0.2, 0.2]
 
-def get_split_indices(images_names, data_splits):
-    random.shuffle(images_names.copy())
+def get_split_indices(num_images, data_splits):
     split_indices = []
     for i in range(len(data_splits)):
         indices = None
         if i == 0:
-            indices = (0, round(data_splits[i] * len(images_names)) - 1)
+            indices = (0, round(data_splits[i] * num_images) - 1)
         elif i == len(data_splits) - 1:
-            indices = (split_indices[i - 1][1] + 1, len(images_names) - 1)
+            indices = (split_indices[i - 1][1] + 1, num_images - 1)
         else:
-            indices = (split_indices[i - 1][1] + 1, split_indices[i - 1][1] + round(data_splits[i] * len(images_names)))
+            indices = (split_indices[i - 1][1] + 1, split_indices[i - 1][1] + round(data_splits[i] * num_images))
         split_indices.append(indices)
     return split_indices
 
@@ -27,7 +26,8 @@ def from_classes_to_sets(directory_names, data_splits):
     for class_name in os.listdir(path="images"):
         images_dir_path = "images/" + class_name
         images_names = os.listdir(path=images_dir_path)
-        split_indices = get_split_indices(images_names, data_splits)
+        random.shuffle(images_names)
+        split_indices = get_split_indices(len(images_names), data_splits)
         for i in range(len(directory_names)):
             if class_name not in os.listdir(path=directory_names[i]):
                 os.mkdir(directory_names[i] + "/" + class_name)
